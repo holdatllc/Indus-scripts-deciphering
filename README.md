@@ -30,6 +30,18 @@ The results demonstrate that the Indus script exhibits **non-random, rule-govern
 
 ---
 
+Identity Stability Layer
+
+The MHM Anchor Engine identifies a distinct class of stable identity symbols based on positional, neighbor, and entropy consistency.
+	•	Stability scores cluster tightly (~0.48–0.60)
+	•	No dominant outliers → identities are constrained, not hub-driven
+	•	High-centrality symbols (e.g., M059) do not appear in this layer
+
+This separation confirms a structural hierarchy:
+	•	HUB_AUTHORITY → global connectivity (e.g., M059)
+	•	RELATIONAL_MARKER → connective grammar layer
+	•	IDENTITY CORES → stable semantic units
+
 ## 📈 Role Transition Heatmap
 
 ![Role Transition Heatmap](figures/role_transition_heatmap.png)
