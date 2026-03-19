@@ -30,6 +30,20 @@ The results demonstrate that the Indus script exhibits **non-random, rule-govern
 
 ---
 
+## 📈 Role Transition Heatmap
+
+![Role Transition Heatmap](figures/role_transition_heatmap.png)
+
+This heatmap shows transition frequencies between symbol roles.
+
+Key observations:
+- RELATIONAL_MARKER → RELATIONAL_MARKER dominates (2145 transitions)
+- CLASSIFIER → RELATIONAL is the primary entry path
+- HUB (M059) feeds into the relational layer
+- CASE_MARKERs act as terminal endpoints
+
+This supports a relational, interaction-driven grammar rather than a simple label system.
+
 ## Methodology Overview
 
 # Indus Script Structural Analysis — Anchor Engine v5
