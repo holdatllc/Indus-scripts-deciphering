@@ -32,6 +32,175 @@ The results demonstrate that the Indus script exhibits **non-random, rule-govern
 
 ## Methodology Overview
 
+# Indus Script Structural Analysis — Anchor Engine v5
+
+A data-driven, distributional analysis of the Indus script using role classification, identity modeling, and interaction-based grammar reconstruction.
+
+This repository presents a fully structural approach to analyzing the Indus script, avoiding unsupported semantic claims while identifying consistent symbolic roles, hierarchical organization, and interaction patterns.
+
+---
+
+## 🧠 Overview
+
+This project models the Indus script as a **layered symbolic system** with:
+
+- Prefix classifiers
+- Identity-like cores (agents/entities)
+- A dominant relational layer
+- Suffix/case markers
+- A unique global hub symbol (M059)
+
+The system is analyzed using:
+- positional statistics
+- entropy-based role detection
+- identity clustering
+- stability testing
+- interaction modeling
+
+---
+
+## 🔥 Key Findings
+
+### 1. Hierarchical Role System
+
+The script organizes into consistent functional layers:
+
+- **77 classifier symbols** (prefix, position = 0.0)
+- **52 identity cores**
+- **17 relational markers** (mid-sequence connectors)
+- **22 case markers** (suffix endings)
+
+---
+
+### 2. M059 — Global Hub Authority
+
+M059 is uniquely identified as a **system-level hub**:
+
+- 210+ occurrences
+- Appears with **74 different classifiers**
+- Connects to **23 identity-like agents**
+- Positionally flexible (avg ≈ 0.58)
+- Highest entropy and connectivity
+
+Critically:
+
+> M059 fails the identity stability test → confirming it is **not a personal name**, but a structural or institutional marker.
+
+---
+
+### 3. Identity Stability
+
+Identity candidates were evaluated using:
+- prefix diversity
+- suffix diversity
+- entropy
+- positional consistency
+- neighbor consistency
+
+Results:
+
+| Class | Count | Description |
+|------|------|------------|
+| HIGH_STABILITY | 5 | Strong recurring identities |
+| MODERATE_STABILITY | 43 | Probable identities |
+| LOW_STABILITY / HUB | 4 | Includes M059 |
+
+No structural artifacts detected.
+
+---
+
+### 4. Relational Dominance
+
+The system is **not identity-heavy**.
+
+Instead:
+
+- RELATIONAL_MARKER → RELATIONAL_MARKER is the most common transition
+- CLASSIFIER → RELATIONAL dominates over CLASSIFIER → IDENTITY
+
+This suggests:
+
+> The script is structurally relational, likely encoding associations, transactions, or classifications rather than simple labels.
+
+---
+
+### 5. Anchor Engine v5 Improvements
+
+- Removed artificial confidence uniformity
+- Classifier confidence now varies (0.66–0.96)
+- Identity stability test added
+- Role interaction modeling introduced
+- Clean separation of HUB vs IDENTITY
+
+---
+
+## 📊 Core Files
+
+### Anchor Mapping
+- `unified_anchor_map.csv` — All symbols with roles and confidence
+- `key_symbol_anchors.csv` — Key structural symbols
+
+### Identity Modeling
+- `identity_stability_test.csv` — Stability scores and classifications
+
+### Interaction Analysis
+- `role_transitions.csv` — Role-to-role transitions
+- `role_patterns.csv` — All sequence patterns
+- `classifier_agent_pairings.csv` — Prefix–identity relationships
+- `m059_interaction_analysis.csv` — Full hub behavior
+
+---
+
+## 🧪 Methodology
+
+This project uses a **purely distributional approach**:
+
+- No assumed language
+- No forced phonetic mapping
+- No external semantic injection
+
+Techniques include:
+- entropy analysis
+- positional modeling
+- clustering
+- graph connectivity
+- interaction analysis
+
+---
+
+## ⚠️ Important Note
+
+This is **not a decipherment**.
+
+Instead, this work establishes:
+
+- structural roles
+- interaction grammar
+- identity-like units
+- system hierarchy
+
+True decipherment requires:
+- bilingual inscriptions
+- known proper names
+- external archaeological correlation
+
+---
+
+## 🧠 Interpretation
+
+The results support the interpretation of the Indus script as:
+
+> A structured symbolic system with a strong relational backbone, potentially used for administrative, economic, or institutional recording.
+
+---
+
+## 🚀 How to Use
+
+Run full analysis:
+
+```bash
+python run_analysis.py --all
+
 ### 1. Transition Graph Analysis
 - Chi-square and co-occurrence modeling
 - Directed symbol transitions
