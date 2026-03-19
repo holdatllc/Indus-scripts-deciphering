@@ -1,0 +1,68 @@
+BLIND PREDICTION TEST REPORT
+============================================================
+
+Train sequences: 1334
+Test sequences:  336
+
+LOCKED MAPPING (frozen before test):
+  M006 -> ni
+  M007 -> ka
+  M012 -> an
+  M013 -> pa
+  M016 -> ni
+  M021 -> ma
+  M027 -> ci
+  M030 -> pa
+  M031 -> ci
+  M039 -> ma
+  M045 -> ci
+  M048 -> an
+  M051 -> tu
+  M057 -> pa
+  M060 -> ka
+  M062 -> ka
+  M065 -> i
+  M067 -> ka
+  M073 -> pa
+  M079 -> ma
+  M089 -> tu
+  M099 -> kan
+  M125 -> am
+  M137 -> col
+  M151 -> kal
+  M176 -> vel
+  M211 -> i
+  M220 -> ar
+  M231 -> ilan
+  M233 -> an
+  M262 -> pan
+  M267 -> kal
+  M270 -> ur
+  M283 -> vel
+  M284 -> nar
+  M293 -> am
+  M305 -> an
+  M321 -> mar
+  M330 -> kal
+  M336 -> lan
+  M342 -> i
+  M350 -> per
+  M357 -> nam
+  M367 -> am
+  M391 -> ur
+  M406 -> kan
+
+SCORES:
+  Template overlap score:      0.8810
+  Ending generalization score: 0.9301
+  Core persistence score:      0.4286
+  Final blind score:           0.7930
+
+INTERPRETATION:
+  PROMISING GENERALIZATION
+
+Scale:
+  > 0.85 = very strong generalization
+  0.70-0.85 = promising but not decisive
+  0.50-0.70 = partial generalization / likely overfit
+  < 0.50 = weak generalization

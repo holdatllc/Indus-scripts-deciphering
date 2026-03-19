@@ -1,0 +1,8 @@
+core,num_sequences_train,num_rendered_forms_train,num_sequences_test,num_rendered_forms_test,present_in_test
+M137,5,5,0,0,0
+M151,4,4,1,1,1
+M231,4,4,1,1,1
+M262,5,5,0,0,0
+M321,5,5,0,0,0
+M350,5,5,0,0,0
+M357,3,3,2,2,1
