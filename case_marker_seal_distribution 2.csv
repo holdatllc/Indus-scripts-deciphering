@@ -1,0 +1,6 @@
+case_marker,role,num_seals,sites,iconography,example_seals
+M233,WEAK_CASE_MARKER,92,"Banawali, Chanhu-daro, Dholavira, Harappa, Kalibangan, Lothal, Mohenjo-daro, Surkotada","buffalo, elephant, geometric, gharial, rhinoceros, script only, tiger, unicorn, zebu bull","BN-0005, BN-0024, BN-0055, C-0009, C-0018"
+M305,CASE_MARKER,81,"Banawali, Chanhu-daro, Dholavira, Harappa, Kalibangan, Lothal, Mohenjo-daro, Rakhigarhi, Surkotada","buffalo, elephant, geometric, gharial, rhinoceros, script only, tiger, unicorn, zebu bull","BN-0012, BN-0013, BN-0036, C-0011, C-0026"
+M125,WEAK_CASE_MARKER,74,"Banawali, Chanhu-daro, Dholavira, Harappa, Kalibangan, Lothal, Mohenjo-daro, Rakhigarhi, Surkotada","buffalo, elephant, geometric, gharial, rhinoceros, script only, tiger, unicorn, zebu bull","BN-0002, BN-0003, BN-0008, BN-0010, BN-0019"
+M249,CASE_MARKER,70,"Banawali, Chanhu-daro, Dholavira, Harappa, Kalibangan, Lothal, Mohenjo-daro, Surkotada","buffalo, elephant, geometric, gharial, rhinoceros, script only, tiger, unicorn, zebu bull","BN-0007, BN-0023, BN-0028, BN-0045, C-0010"
+M220,CASE_MARKER,61,"Banawali, Chanhu-daro, Dholavira, Harappa, Kalibangan, Lothal, Mohenjo-daro, Rakhigarhi, Surkotada","buffalo, elephant, geometric, gharial, rhinoceros, script only, tiger, unicorn, zebu bull","BN-0029, BN-0030, BN-0035, BN-0052, C-0027"
