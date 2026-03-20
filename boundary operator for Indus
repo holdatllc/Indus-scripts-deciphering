@@ -1,0 +1,62 @@
+import re
+
+# 1. The MHM Generative Grammar Rule
+# CL = Classifier, REL = Relational, CORE = Core Identity, CASE = Terminal Case
+GRAMMAR_RULE = re.compile(r"^(CL )*(REL )*(CORE )*(REL )*(CASE )*$")
+
+# 2. Simulated Lexicon (Mapping symbols to structural roles)
+lexicon = {
+    "M062": "CL",
+    "M176": "REL",
+    "M125": "BOUNDARY",
+    "M329": "CORE",
+    "M220": "CASE"
+}
+
+# 3. The Boundary Operator Logic
+def apply_boundary_operator(sequence, boundary_symbol="M125"):
+    print(f"--- INITIATING BOUNDARY OPERATOR ---")
+    print(f"Input Sequence: {sequence}")
+    
+    symbols = sequence.split()
+    
+    # Check if the boundary operator exists in the sequence
+    if boundary_symbol not in symbols:
+        print(f"No {boundary_symbol} boundary detected. Processing as single clause.")
+        return
+        
+    # Locate the boundary
+    split_index = symbols.index(boundary_symbol)
+    print(f"[{boundary_symbol}] Boundary detected at index {split_index}.")
+    
+    # CLEAVE THE SEQUENCE (The Syntactic Wall)
+    left_clause = symbols[:split_index]
+    right_clause = symbols[split_index + 1:]
+    
+    print(f"\nCleaving sequence into independent sub-clauses...")
+    print(f"Left Clause:  {left_clause}")
+    print(f"Right Clause: {right_clause}")
+    
+    # Validate Left Clause
+    left_roles = [lexicon.get(s, "UNK") for s in left_clause]
+    left_str = " ".join(left_roles) + " "
+    left_valid = bool(GRAMMAR_RULE.match(left_str))
+    
+    # Validate Right Clause
+    right_roles = [lexicon.get(s, "UNK") for s in right_clause]
+    right_str = " ".join(right_roles) + " "
+    right_valid = bool(GRAMMAR_RULE.match(right_str))
+    
+    # Output Validation Results
+    print(f"\n--- GRAMMAR VALIDATION ---")
+    print(f"Left Clause Structure:  [{left_str.strip()}] -> VALID: {left_valid}")
+    print(f"Right Clause Structure: [{right_str.strip()}] -> VALID: {right_valid}")
+    
+    if left_valid and right_valid:
+        print("\n✅ SUCCESS: Sequence successfully segmented into two independently valid clauses.")
+    else:
+        print("\n❌ FAILURE: Segmentation resulted in invalid grammar.")
+
+# 4. Execute the Operator on the Phase 5 Proof Sequence
+test_sequence = "M062 M176 M125 M329 M220"
+apply_boundary_operator(test_sequence)
