@@ -1,0 +1,3 @@
+title,core,cooc_n,title_n,core_n,expected,lift,odds_ratio,p_fisher,sig_05,sig_10,strength_%
+M054,M189,1,12,1,0.0072,139.167,inf,0.007186,True,True,8.3
+M054,M403,1,12,2,0.0144,69.583,150.636,0.014324,True,True,7.7
