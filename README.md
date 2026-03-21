@@ -1,412 +1,185 @@
-# Computational Structural Analysis of the Indus Script
+# Indus Valley Script — Constraint-Based Structural Analysis
+### Corrected Co-occurrence Metrics · 1,670 Seal Sequences
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
-
-A rigorous computational structural analysis of the undeciphered Indus Valley script, extracting symbol roles, positional constraints, substitution systems, and emergent semantic behavior from 1,670 inscriptions.
-
----
-
-## Abstract
-
-This repository presents a full computational pipeline for analyzing the Indus script using transition graph modeling, clustering, substitution analysis, slot structure extraction, and semantic fingerprinting.
-
-The results demonstrate that the Indus script exhibits **non-random, rule-governed structural organization** consistent with a constrained symbolic system, potentially compatible with linguistic encoding, though no phonetic decipherment is claimed.
+[![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
+[![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Preprint%20%2F%20Not%20Peer%20Reviewed-orange.svg)]()
 
 ---
 
-## Key Findings
+## What This Is
 
-- 390 unique symbols analyzed
-- 77 strict prefix/classifier symbols (100% initial position)
-- 3â7 strong suffix/terminal markers (>95% final position)
-- Stable slot structure: `[CLASSIFIER] -> [CONTENT] -> [MARKER]`
-- 94.9% agreement between clustering and rule-based roles
-- 6/6 structural validation tests passed
-- 100% consistency on held-out structural validation
-- 52 identity-like cores detected
-- Strong centralization pattern with hub symbol (M059)
-- Emergent hierarchy-like behavior from distribution
+A four-phase computational grammar analysis of 1,670 Indus Valley seal sequences. The pipeline tests the combinatorial structure between identity signs (CORE) and title/classifier signs (START), corrects a systematic denominator error discovered during review, and produces a statistically honest model of the script's constraint structure.
 
 ---
 
-Identity Stability Layer
+## One-Sentence Result
 
-The MHM Anchor Engine identifies a distinct class of stable identity symbols based on positional, neighbor, and entropy consistency.
-	•	Stability scores cluster tightly (~0.48–0.60)
-	•	No dominant outliers → identities are constrained, not hub-driven
-	•	High-centrality symbols (e.g., M059) do not appear in this layer
-
-This separation confirms a structural hierarchy:
-	•	HUB_AUTHORITY → global connectivity (e.g., M059)
-	•	RELATIONAL_MARKER → connective grammar layer
-	•	IDENTITY CORES → stable semantic units
-
-## 📈 Role Transition Heatmap
-
-![Role Transition Heatmap](figures/role_transition_heatmap.png)
-
-This heatmap shows transition frequencies between symbol roles.
-
-Key observations:
-- RELATIONAL_MARKER → RELATIONAL_MARKER dominates (2145 transitions)
-- CLASSIFIER → RELATIONAL is the primary entry path
-- HUB (M059) feeds into the relational layer
-- CASE_MARKERs act as terminal endpoints
-
-This supports a relational, interaction-driven grammar rather than a simple label system.
-
-## Methodology Overview
-
-# Indus Script Structural Analysis — Anchor Engine v5
-
-A data-driven, distributional analysis of the Indus script using role classification, identity modeling, and interaction-based grammar reconstruction.
-
-This repository presents a fully structural approach to analyzing the Indus script, avoiding unsupported semantic claims while identifying consistent symbolic roles, hierarchical organization, and interaction patterns.
+> **The Indus inscriptions exhibit a sparse, constraint-based co-occurrence structure with rare statistically significant identity–title pairings embedded within a largely open combinatorial system.**
 
 ---
 
-## 🧠 Overview
+## The Five Publishable Claims
 
-This project models the Indus script as a **layered symbolic system** with:
-
-- Prefix classifiers
-- Identity-like cores (agents/entities)
-- A dominant relational layer
-- Suffix/case markers
-- A unique global hub symbol (M059)
-
-The system is analyzed using:
-- positional statistics
-- entropy-based role detection
-- identity clustering
-- stability testing
-- interaction modeling
+| # | Claim | Evidence |
+|---|---|---|
+| 1 | **Minimal Grammar is real** | 99.76% isolation rate — one clause, one identity |
+| 2 | **M125 is a syntactic boundary operator** | 75% clause-split validity, above chance |
+| 3 | **CORE signs occupy a fixed grammatical slot** | 90% Fixed-Pattern (positional variance < 0.05) |
+| 4 | **Title–core system is sparse and open, not locked** | 0 LOCKED cores after correction; 4 robust pairs at p < 0.001 |
+| 5 | **CORE symbols associate non-randomly with iconography** | Motif co-occurrence is the strongest structural signal |
 
 ---
 
-## 🔥 Key Findings
+## What This Does NOT Claim
 
-### 1. Hierarchical Role System
-
-The script organizes into consistent functional layers:
-
-- **77 classifier symbols** (prefix, position = 0.0)
-- **52 identity cores**
-- **17 relational markers** (mid-sequence connectors)
-- **22 case markers** (suffix endings)
+- ~~The Indus script is an MFA / access-key system~~ — not supported
+- ~~Titles are locked to identities globally~~ — contradicted by corrected HHI data
+- ~~Deterministic credential pairs exist~~ — eliminated by denominator correction
+- ~~The script encodes spoken language~~ — out of scope
 
 ---
 
-### 2. M059 — Global Hub Authority
+## Methodological Correction (Important)
 
-M059 is uniquely identified as a **system-level hub**:
+A systematic error was identified and corrected between analysis versions:
 
-- 210+ occurrences
-- Appears with **74 different classifiers**
-- Connects to **23 identity-like agents**
-- Positionally flexible (avg ≈ 0.58)
-- Highest entropy and connectivity
+**v1 (incorrect):**
+```
+strength = n_both / seals_where_core_appears_with_any_title
+```
 
-Critically:
+**v2 (correct):**
+```
+strength = n_both / ALL_seals_where_core_appears
+```
 
-> M059 fails the identity stability test → confirming it is **not a personal name**, but a structural or institutional marker.
+The v1 method excluded title-free seals from the denominator, inflating every pairing strength. 52 pairs were inflated by more than 20 percentage points. The worst case (M222←M001) went from 100% → 20%.
 
----
+| Metric | v1 (wrong) | v2 (correct) |
+|---|---|---|
+| LOCKED cores | 1 | **0** |
+| RESTRICTED cores | 81 | **59** |
+| OPEN cores | 99 | **155** |
+| Robust pairs | 5 | **4** |
 
-### 3. Identity Stability
-
-Identity candidates were evaluated using:
-- prefix diversity
-- suffix diversity
-- entropy
-- positional consistency
-- neighbor consistency
-
-Results:
-
-| Class | Count | Description |
-|------|------|------------|
-| HIGH_STABILITY | 5 | Strong recurring identities |
-| MODERATE_STABILITY | 43 | Probable identities |
-| LOW_STABILITY / HUB | 4 | Includes M059 |
-
-No structural artifacts detected.
+> *"The disappearance of all fully deterministic pairings after correction indicates that previously observed rigidity was an artefact of conditional sampling rather than an intrinsic property of the system."*
 
 ---
 
-### 4. Relational Dominance
+## Key Numbers (Corrected)
 
-The system is **not identity-heavy**.
+| Metric | Value |
+|---|---|
+| Seals analysed | 1,670 |
+| Isolation rate (Minimal Grammar) | **99.76%** |
+| Fixed-Pattern CORE symbols | **90%** (18/20) |
+| Exclusive titles (HHI > 0.80) | **0** |
+| LOCKED cores (correct denominator) | **0** |
+| Restricted cores (preferred pairing, n ≥ 2) | **59** |
+| Robust pairs (all 4 gates simultaneously) | **4** |
 
-Instead:
+**The 4 robust pairs:**
 
-- RELATIONAL_MARKER → RELATIONAL_MARKER is the most common transition
-- CLASSIFIER → RELATIONAL dominates over CLASSIFIER → IDENTITY
+| Pair | True Strength | Lift | Fisher p |
+|---|---|---|---|
+| M396 ← M014 | 66.7% | 65× | 0.0003 |
+| M164 ← M060 | 66.7% | 56× | 0.0004 |
+| M224 ← M008 | 66.7% | 51× | 0.0005 |
+| M280 ← M080 | 50.0% | 44× | 0.0007 |
 
-This suggests:
-
-> The script is structurally relational, likely encoding associations, transactions, or classifications rather than simple labels.
-
----
-
-### 5. Anchor Engine v5 Improvements
-
-- Removed artificial confidence uniformity
-- Classifier confidence now varies (0.66–0.96)
-- Identity stability test added
-- Role interaction modeling introduced
-- Clean separation of HUB vs IDENTITY
-
----
-
-## 📊 Core Files
-
-### Anchor Mapping
-- `unified_anchor_map.csv` — All symbols with roles and confidence
-- `key_symbol_anchors.csv` — Key structural symbols
-
-### Identity Modeling
-- `identity_stability_test.csv` — Stability scores and classifications
-
-### Interaction Analysis
-- `role_transitions.csv` — Role-to-role transitions
-- `role_patterns.csv` — All sequence patterns
-- `classifier_agent_pairings.csv` — Prefix–identity relationships
-- `m059_interaction_analysis.csv` — Full hub behavior
+No pairing reaches 100% under the corrected denominator.
 
 ---
 
-## 🧪 Methodology
+## Pipeline
 
-This project uses a **purely distributional approach**:
-
-- No assumed language
-- No forced phonetic mapping
-- No external semantic injection
-
-Techniques include:
-- entropy analysis
-- positional modeling
-- clustering
-- graph connectivity
-- interaction analysis
+| Phase | Script | Method |
+|---|---|---|
+| **5+6** | `indus_analysis.py` | M125 boundary test + compound subject audit |
+| **7** | `phase7_master_lexicon.py` | Positional variance → Fixed/Mobile lexicon |
+| **8** | `phase8_access_keys.py` | Hand-picked matrix + HHI exclusivity |
+| **9** | `phase9_deep_access_keys.py` | Fisher exact + lift + corrected strength |
 
 ---
 
-## ⚠️ Important Note
-
-This is **not a decipherment**.
-
-Instead, this work establishes:
-
-- structural roles
-- interaction grammar
-- identity-like units
-- system hierarchy
-
-True decipherment requires:
-- bilingual inscriptions
-- known proper names
-- external archaeological correlation
-
----
-
-## 🧠 Interpretation
-
-The results support the interpretation of the Indus script as:
-
-> A structured symbolic system with a strong relational backbone, potentially used for administrative, economic, or institutional recording.
-
----
-
-## 🚀 How to Use
-
-Run full analysis:
+## Quick Start
 
 ```bash
-python run_analysis.py --all
+pip install pandas numpy matplotlib seaborn openpyxl scipy
 
-### 1. Transition Graph Analysis
-- Chi-square and co-occurrence modeling
-- Directed symbol transitions
-- Positional frequency extraction
+cd code
+cp ../data/*.csv .
 
-### 2. Role Classification
-Symbols classified by:
-- Start ratio
-- End ratio
-- Entropy
-- Flow (in/out degree)
-
-Roles:
-- STARTER
-- CORE
-- ENDING
-- CONNECTOR
-
----
-
-### 3. Clustering
-
-K-means clustering on structural features:
-- Position ratios
-- Transition density
-- Entropy
-
-Result:
-- 94.9% alignment with rule classification
-
----
-
-### 4. Substitution System
-
-Detected via:
-- Context similarity (cosine)
-- Position equivalence
-- Neighbor matching
-
-Findings:
-- Large interchangeable prefix families
-- Stable suffix equivalence classes
-- Core substitution groups
-
----
-
-### 5. Slot Structure Extraction
-
-Dominant pattern:
-
+python indus_analysis.py           # Phase 5+6
+python phase7_master_lexicon.py    # Phase 7
+python phase8_access_keys.py       # Phase 8
+python phase9_deep_access_keys.py  # Phase 9 (corrected)
 ```
-[CLASSIFIER] -> [CONTENT] -> [MARKER]
-```
-
-Top templates cover 55.9% of corpus.
-
----
-
-### 6. Identity Detection
-
-52 symbols show:
-- High context diversity
-- Multi-frame occurrence
-- Stable positional behavior
-
-These act as **identity-like structural elements**.
-
----
-
-### 7. Dominance & Hierarchy Analysis
-
-Findings:
-- 96% of identities are highly distributed
-- One dominant hub (M059)
-
-Interpretation:
-- Strong centralization
-- Possible institutional or system-level role
-
----
-
-### 8. Semantic Fingerprinting
-
-Each identity analyzed by:
-- Prefix distribution
-- Suffix distribution
-- Sequence position
-- Co-occurrence network
-
-Resulting categories:
-- CORE_ENTITY
-- FLEXIBLE_AGENT
-- HUB_AUTHORITY
-
----
-
-## Semantic Interpretation (Constrained)
-
-Observed structure:
-
-```
-[CLASSIFIER] + [ENTITY] + [MARKER]
-```
-
-Possible functional roles:
-
-| Component | Interpretation |
-|----------|---------------|
-| Prefix | category / classifier |
-| Core | entity / identifier |
-| Suffix | relational marker |
-
----
-
-## Central Observation
-
-M059:
-- 210 occurrences
-- Appears across many contexts
-- High connectivity
-
-Interpretation:
-- Hub-like symbolic function
-- Likely high-level or general role
-
----
-
-## What This Analysis Does NOT Claim
-
-- No phonetic decipherment
-- No direct translation
-- No confirmed language family
-- No validated semantic meanings
-
-All interpretations are **distributional hypotheses only**.
-
----
-
-## Conclusions
-
-1. The Indus script is structurally non-random  
-2. It follows consistent positional rules  
-3. It exhibits substitution and clustering behavior  
-4. It supports a slot-based symbolic system  
-5. Identity-like elements and centralization exist  
-6. Structural modeling is complete at the statistical level  
-
----
-
-## Requirements for True Decipherment
-
-- Bilingual inscription
-- Known proper names
-- Archaeological correlation
-- External phonetic anchor
 
 ---
 
 ## Repository Structure
 
 ```
-indus-script-analysis/
-âââ code/
-âââ data/
-âââ results/
-âââ figures/
-âââ docs/
+indus_valley_repo/
+├── README.md
+├── HOWTO.md
+├── code/
+│   ├── indus_analysis.py
+│   ├── phase7_master_lexicon.py
+│   ├── phase8_access_keys.py
+│   └── phase9_deep_access_keys.py       ← v2, corrected denominator
+├── data/
+│   ├── semantic_interpretations_2.csv
+│   └── seal_catalog.csv
+├── results/
+│   ├── phase5_6_summary.csv
+│   ├── m125_segment_validity.csv
+│   ├── compound_subject_audit.csv
+│   ├── core_motif_correlation_matrix.csv
+│   ├── exclusive_title_motif_matrix.csv
+│   ├── core_symbol_site_distribution.csv
+│   ├── master_structural_lexicon.csv
+│   ├── core_title_substitution_matrix.csv
+│   ├── functional_class_breakdown.csv
+│   ├── access_key_matrix.csv
+│   ├── access_key_matrix_normalised.csv
+│   ├── deterministic_keys.csv
+│   ├── corrected_pairing_strength.csv   ← v2, all 580 pairs
+│   ├── robust_constrained_pairs.csv     ← v2, 4 pairs passing all gates
+│   ├── title_exclusivity.csv
+│   ├── core_vulnerability.csv
+│   ├── phase8_summary.csv
+│   ├── phase9_summary.csv
+│   ├── indus_core_motif_heatmap.png     ← Fig 1
+│   ├── motif_preference_heatmap.png     ← Fig 2
+│   ├── core_title_substitution_heatmap.png ← Fig 3
+│   ├── access_key_heatmap.png           ← Fig 4
+│   ├── access_lift_heatmap.png          ← Fig 5
+│   ├── access_fisher_heatmap.png        ← Fig 6
+│   ├── true_strength_heatmap.png        ← Fig 7
+│   ├── title_exclusivity_chart.png      ← Fig 8
+│   ├── before_after_correction.png      ← Fig 9 (before/after bar chart)
+│   └── phase6_compound_audit.xlsx
+└── paper/
+    └── indus_minimal_grammar.md         ← Full paper, corrected framing
 ```
 
 ---
 
 ## Citation
 
-@misc{indus_structural_analysis_2026,
-  title = {Computational Structural Analysis of the Indus Script},
-  year = {2026}
-}
+```
+Holdat LLC / WILL DA BEATZ HOLDAT (2025).
+A Constraint-Based Structural Analysis of Indus Inscriptions
+Using Corrected Co-occurrence Metrics.
+GitHub: [repository URL]
+```
 
 ---
 
 ## License
 
-MIT
+MIT License. Analysis code © 2025 Holdat LLC.  
+Data derived from publicly available Indus corpus (Mahadevan 1977).
